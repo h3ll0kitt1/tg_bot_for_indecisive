@@ -53,8 +53,8 @@ func updateText(u *telegram.UpdatesResponse, newText string) {
 }
 
 func validate(in string) bool {
-	isStringAlphabetic := regexp.MustCompile(`^[a-zA-Z0-9_]*$`).MatchString
-	if len(in) == 0 || !isStringAlphabetic(in) {
+	isStringAlphabeticAndDigit := regexp.MustCompile(`[a-zA-Z0-9]+`).MatchString
+	if len(in) == 0 || !isStringAlphabeticAndDigit(in) {
 		return false
 	}
 	return true
